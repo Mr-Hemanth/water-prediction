@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Water Quality Prediction</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="ph">pH</label>
+                <input type="text" class="form-control" id="ph" name="ph" required>
+            </div>
+            <div class="form-group">
+                <label for="dissolved_oxygen">Dissolved Oxygen</label>
+                <input type="text" class="form-control" id="dissolved_oxygen" name="dissolved_oxygen" required>
+            </div>
+            <div class="form-group">
+                <label for="turbidity">Turbidity</label>
+                <input type="text" class="form-control" id="turbidity" name="turbidity" required>
+            </div>
+            <div class="form-group">
+                <label for="chemical_concentration">Chemical Concentration</label>
+                <input type="text" class="form-control" id="chemical_concentration" name="chemical_concentration" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <h3 class="text-center mt-4">{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
